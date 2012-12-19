@@ -1,7 +1,10 @@
 %h1 Sources
 %p
-  Today's file:
-  = todays_file
+  - if todays_file
+    Today's file:
+    = todays_file
+  - else
+    No file today
 %a{href:"http://github.com/austinfromboston/dev_primer"}Source Repo
 
 
