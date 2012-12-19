@@ -1,0 +1,8 @@
+A simple proyecto for sending a daily doc to anyone
+
+To use -- 
+set your config vars
+GMAIL_USER and GMAIL_PASS
+and PRIMER_SUBSCRIBERS - a list of who will receive the docs
+and OFFSET_START - by default we start with the first doc on the first day of the year.
+Add an OFFSET_START if you'd like to start later.
