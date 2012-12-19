@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+
+gem "pony"
+gem "whenever"
+gem "sinatra"
+gem "pg"
+gem "activerecord"
+gem "haml"
+gem "thin"
+gem "rake"
