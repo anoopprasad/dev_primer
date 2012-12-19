@@ -4,10 +4,13 @@ require './filepicker'
 
 task :cron do
   todays_file = Filepicker.new.filename
+  exit unless todays_file
+  recipients = ENV['PRIMER_SUBSCRIBERS']
   Pony.mail({
-    :to => 'austin@omadahealth.com',
+    :to => recipients,
     :subject => 'Your daily Ruby doc',
-    :attachments => {File.basename(todays_file) => File.read(todays_file)},
+    :body => "Some of these may be out of date, but the ideas are still helpful",
+    :attachments => {File.basename(todays_file) => File.read(todays_file, binmode:true)},
     :via => :smtp,
     :via_options => {
       :address              => 'smtp.gmail.com',
