@@ -1,4 +1,5 @@
+require './filepicker'
 get "/" do
-  haml :signup
+  haml :signup, locals: {todays_file: Filepicker.new.filename}
 end
 

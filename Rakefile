@@ -1,12 +1,13 @@
 require 'rubygems'
 require 'pony'
+require './filepicker'
+
 task :cron do
-  current_path = File.expand_path(File.dirname(__FILE__))
-  source_path = File.join(current_path, 'sources')
-  source_files = Dir.entries(source_path).select { |s| s !~ /^\.\.?$/ }
-  todays_file = File.join(source_path, source_files[Time.now.yday])
+  todays_file = Filepicker.new.filename
   Pony.mail({
-    :to => 'austin@rawfingertips.com',
+    :to => 'austin@omadahealth.com',
+    :subject => 'Your daily Ruby doc',
+    :attachments => {File.basename(todays_file) => File.read(todays_file)},
     :via => :smtp,
     :via_options => {
       :address              => 'smtp.gmail.com',
