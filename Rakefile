@@ -8,7 +8,7 @@ task :cron do
   p todays_file
   recipients = ENV['PRIMER_SUBSCRIBERS']
   Pony.mail({
-    :to => "primer@example.com",
+    :to => "austin+primer@omadahealth.com",
     :bcc => recipients,
     :subject => "[daily Ruby doc] #{File.basename todays_file}",
     :body => "Modified the mailer script. Maybe now we can see the rest of these.  You can also browse them at your leisure on https://github.com/austinfromboston/dev_primer",
